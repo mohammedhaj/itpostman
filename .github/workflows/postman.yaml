@@ -1,0 +1,6 @@
+name: Workflow Postman Collection with Slack Notification
+
+on: ['push']
+
+jobs:
+    
