@@ -3,4 +3,12 @@ name: Workflow Postman Collection with Slack Notification
 on: ['push']
 
 jobs:
-    
+    postman-github:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Install newman
+          uses: matt-ball/newman-action@master
+          with:
+            apiKey: ${{ secrets.postmanApiKey }}
+            collection: 19980843-e1ea76f0-dc90-4e50-9992-f68ac667e706
