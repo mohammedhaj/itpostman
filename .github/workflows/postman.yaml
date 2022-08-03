@@ -20,7 +20,8 @@ jobs:
           run: |
             npm i  newman --location=global
             npm i  newman-reporter-allure  --location=global
-            npm install  newman-reporter-htmlextra --location=global
+            npm i  newman-reporter-htmlextra --location=global
+            npm i  newman-reporter-slackreporter --location=global
 
         - name: Generate Allure report
           run: |
@@ -38,7 +39,7 @@ jobs:
         - name: Generate html report
           run: |
             newman run  https://api.getpostman.com/collections/19980843-e1ea76f0-dc90-4e50-9992-f68ac667e706?apikey=${{ secrets.postmanApiKey }} \
-            -r htmlextra --reporter-htmlextra-export testArtifactsHTML/htmlreport.html     
+             -r slackreporter,htmlextra --reporter-htmlextra-export testArtifactsHTML/htmlreport.html --reporter-slackreporter-webhookurl ${{SLACK_WEBHOOK_URL}}     
         # Upload the reports to TestArtifacts directory
         - name: Output the results
           uses: actions/upload-artifact@v2
