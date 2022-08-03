@@ -1,4 +1,4 @@
-name: Workflow Postman Collection with Slack Notification
+name: Workflow Postman Collection with Slack Notifications
 
 on: ['push']
 
