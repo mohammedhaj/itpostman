@@ -27,7 +27,7 @@ jobs:
             newman run  https://api.getpostman.com/collections/19980843-e1ea76f0-dc90-4e50-9992-f68ac667e706?apikey=${{ secrets.postmanApiKey }} \
             -r allure --reporter-allure-export allure-results
             wget https://github.com/allure-framework/allure2/releases/download/2.18.1/allure_2.18.1-1_all.deb
-            dpkg -i allure_2.18.1-1_all.deb
+            sudo dpkg -i allure_2.18.1-1_all.deb
             allure generate --clean
         - name: Output the results
           uses: actions/upload-artifact@v2
