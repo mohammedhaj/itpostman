@@ -13,6 +13,7 @@ jobs:
             apiKey: ${{ secrets.postmanApiKey }}
             collection: 19980843-e1ea76f0-dc90-4e50-9992-f68ac667e706
         - name: Install NodeJS
+          if: success() || failure()
           uses: actions/setup-node@v3
           with:
             node-version: 16
