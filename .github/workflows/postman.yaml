@@ -4,7 +4,7 @@ on: ['push']
 
 jobs:
     postman-github:
-      runs-on: self-hosted
+      runs-on: ubuntu-latest
 
       steps:
         - name: Execution Postman Collection
