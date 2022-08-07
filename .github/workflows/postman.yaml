@@ -4,7 +4,7 @@ on: ['push']
 
 jobs:
     postman-github:
-      runs-on: ubuntu-latest
+      runs-on: self-hosted
 
       steps:
         - name: Execution Postman Collection
@@ -37,9 +37,11 @@ jobs:
           if: success() || failure()
           uses: actions/upload-artifact@v2
           with:
-            name: Allure-Reports
-            path: allure-report
-
+            name: Allure-Results
+            path: allure-results
+        - name:  Push new reports
+          if: always()
+          run: sudo cp -a allure-report/. /mnt/c/Users/medha/Desktop/itecor/allure/allure-report-postamn/
         # - name: Generate html report
         #   if: success() || failure()
         #   run: |
